@@ -53,7 +53,6 @@ public:
         return(cwdLeft.boundingRect.x < cwdRight.boundingRect.x);                                                   // the contours from left to right???
     }
 
-
                                                 //////////////////////////////////////////////////////////////////////////////////////////////
     bool checkIfContourIsValid1() {                              // obviously in a production grade program
         if (fltArea1 < MIN_CONTOUR_AREA1) return false;           // we would have a much more robust function for 
@@ -109,10 +108,6 @@ Mat deskew(Mat& img){
 
 
 
-
-
-
-
 void loadTrainTestLabel(string &pathName, vector<Mat> &trainCells,vector<Mat> &trainCells1, vector<Mat> &testCells,vector<Mat> &trialcells,vector<int> &trainLabels,vector<int> &trainLabels1, vector<int> &testLabels)
 {
     std::vector<ContourWithData> allContoursWithData;           // declare empty vectors,
@@ -136,32 +131,11 @@ void loadTrainTestLabel(string &pathName, vector<Mat> &trainCells,vector<Mat> &t
 
             if(j < int(img.cols))
             { 
-
-            // matROI3 = digitImg(Rect(4,2,12,16));
-            // cv::resize(matROI3, matROI3Resized, cv::Size(RESIZED_IMAGE_WIDTH, RESIZED_IMAGE_HEIGHT)); 
-
-            //  trainCells.push_back(matROI3Resized);
-
-             //testCells.push_back(digitImg2);
-
-
-           //  std::cout << "\n\n"<< "matROI3Resized = " << matROI3Resized<< "\n\n"; 
-
-
-           // matROI3 = digitImg(Rect(4,2,12,16));
              trainCells.push_back(digitImg);
-          //   std::cout << "\n\n"<< "digitImg = " << digitImg<< "\n\n";  
-            }   
-            // 0.9     
-            // else
-
-            // {
-            //     testCells.push_back(digitImg);
-            // }
+  
             ImgCount++;
 
         }
-       // std::cout << "\n\n"<< "trainCells = " << trainCells << "\n\n";  
     }
 
 for(int i = 0;i < img.rows ; i = i + 5*SZ)
@@ -180,24 +154,10 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
 
               trialcells.push_back(matROI2Resized);
 
-             //testCells.push_back(digitImg2);
-           //  std::cout << "\n\n"<< "matROI2Resized = " << matROI2Resized<< "\n\n";  
             }   
             }
             }
 
-        
-
-        
-        //std::cout << "\n\n"<< "trainCells = " << digitImg<< "\n\n";  
-    
-
-
-
-
-    // std::cout << "\n\n"<< "trainCells = " << digitImg<< "\n\n";  
-    //Mat img = imread(pathName,CV_LOAD_IMAGE_GRAYSCALE);
-    //Mat img1 = imread(pathName1,CV_LOAD_IMAGE_G32.png");            // read in the test numbers image
   
   cv::Mat matTestingNumbers = cv::imread("test05.png");            // read in the test numbers image
   cv::Mat imgTrainingletters = cv::imread("letter2.png");
@@ -216,8 +176,7 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
     cv::Mat matBlurred;             // declare more image variables
     cv::Mat matThresh;              //
     cv::Mat matThreshCopy;          //
-    //cv::Mat matROIResized1; 
-   
+
     cv::Mat imgGrayscale;               // 
     cv::Mat imgBlurred;                 // declare various images
     cv::Mat imgThresh;                  //
@@ -237,7 +196,6 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
     cv::cvtColor(imgTrainingnumbers1, imgGrayscale1, cv::COLOR_BGR2GRAY);         // convert to grayscale
 
     bitwise_not ( imgTrainingnumbers, imgTrainingnumbers1 );
-   // cv::imshow("imgTrainingnumbers1", imgTrainingnumbers1);
                                                                         // blur
     cv::GaussianBlur(matGrayscale,              // input image
         matBlurred,                // output image
@@ -280,10 +238,6 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
         2);                                     // constant subtracted from the mean or weighted mean
     
 
-
-  //   cv::imshow("imgThresh1", imgThresh1);
-     // cv::imshow("imgBlurred1", imgBlurred1);
-             //show threshold image for reference
     matThreshCopy = matThresh.clone();  
     imgThreshCopy = imgThresh.clone();          // make a copy of the thresh image, this in necessary b/c findContours modifies the
     imgThreshCopy1 = imgThresh1.clone();          // make a copy of the thresh image, this in necessary b/c findContours modifies the
@@ -319,7 +273,6 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
 
 
 
-   //cv::imshow("imgThreshCopy", imgThreshCopy);
     for (int i = 0; i < ptContours.size(); i++) {               // for each contour
         ContourWithData contourWithData;                                                    // instantiate a contour with data object
         contourWithData.ptContour = ptContours[i];                                          // assign contour to contour with data
@@ -336,7 +289,6 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
     contourWithData1.boundingRect1 = cv::boundingRect(contourWithData1.ptContour1);  
     contourWithData1.fltArea1 = cv::contourArea(contourWithData1.ptContour1);
     allContoursWithData1.push_back(contourWithData1);  
-    //std::cout << "contourWithData1 = " <<contourWithData1 << std::endl;
                                    // add contour with data object to list cv::contourArea(contourWithData1.ptContour);   
     }
       for (int i = 0; i < ptContours2.size(); i++) {       
@@ -345,14 +297,7 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
     contourWithData2.boundingRect2 = cv::boundingRect(contourWithData2.ptContour2);  
     contourWithData2.fltArea2 = cv::contourArea(contourWithData2.ptContour2);
     allContoursWithData2.push_back(contourWithData2);  
-    //std::cout << "contourWithData1 = " <<contourWithData1 << std::endl;
-                                   // add contour with data object to list cv::contourArea(contourWithData1.ptContour);   
     }
-
-
-            
-                // calculate the contour area
-           // get the bounding rect
   
 
                                     // show ROI image for reference  块访问与操作（ROI区域的选取）
@@ -400,13 +345,12 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
         
         cv::Size s = matROI.size();
           
-       // std::cout << "\n\n" << " size= " << s<< "\n\n"; 
+     
 
         cv::Mat matROIResized;
         cv::resize(matROI, matROIResized, cv::Size(RESIZED_IMAGE_WIDTH, RESIZED_IMAGE_HEIGHT));     // resize image, this will be more consistent for recognition and storage
 
         cv::Mat matROIFloat;
-        // std::cout << "\n\n" << " matROIFloat = " << matROIFloat<< "\n\n"; 
         
          cv::Mat matROIResized1 (24,28,CV_8UC1,Scalar(0)) ;
          matROIResized.copyTo(matROIResized1(Rect(4, 4, 20, 20)));
@@ -414,23 +358,14 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
         cv::Mat matROIResized2;
         cv::resize(matROIResized1, matROIResized2, cv::Size(RESIZED_IMAGE_WIDTH, RESIZED_IMAGE_HEIGHT)); 
          
-       //  std::cout << "\n\n" << " matROIResized2 " << matROIResized2<< "\n\n";
         matROIResized.convertTo(matROIFloat, CV_32FC1);             // convert Mat to float, necessary for call to find_nearest
 
-        //cv::Mat matROIFlattenedFloat = matROIFloat.reshape(1, 1);
-        //cv::Mat matCurrentChar(0, 0, CV_32F);
-       // std::cout << "\n\n" << " matROIFloat = " << matROIFloat<< "\n\n";
-
-       //testCells.push_back(matROIResized2);
+      
         testCells.push_back(matROIResized2);
 
-      // std::cout << "\n\n"<< "matROIResized2" << matROIResized2 << "\n\n";
-
-       //  cv::imshow("matROI", matROI);  
+      
        std::cout << "\n\n" << " testCells = " << matROIResized2<< "\n\n"; 
 
-      //std::cout << "\n\n" << " testCells = " << testCells<< "\n\n"; 
-       // std::cout << "\n\n" << " matROIFlattenedFloat = " << matROIFlattenedFloat<< "\n\n";   
 }
   
 
@@ -446,17 +381,12 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
             cv::Mat matROI1 = imgThresh(validContoursWithData1[i].boundingRect1); 
             cv::Mat matROIResized11;
              cv::resize(matROI1, matROIResized11, cv::Size(RESIZED_IMAGE_WIDTH, RESIZED_IMAGE_HEIGHT));
-        //    cv::imshow("matROI1", matROI1);  
-             //cv::imshow("matROIResized11", matROIResized11);                               // show ROI image for reference  块访问与操作（ROI区域的选取）
-            //cv::imshow("imgTrainingletters", imgTrainingletters); 
-            //testCells.push_back(matROIResized2);
+       
 
            trainCells1.push_back(matROIResized11);  
 
 
- //std::cout << "\n\n"<< "numbers" << i << "\n\n";
 
- //std::cout << "\n\n"<< "matROIResized11" << matROIResized11<< "\n\n";
 
   }
 
@@ -471,44 +401,14 @@ for (int i = 0; i < validContoursWithData2.size(); i++) {            // for each
              cv::Mat matROIResized88;
              cv::resize(matROI8, matROIResized88, cv::Size(RESIZED_IMAGE_WIDTH, RESIZED_IMAGE_HEIGHT));
             cv::imshow("matROIResized88", matROIResized88);  
-             //cv::imshow("matROIResized11", matROIResized11);                               // show ROI image for reference  块访问与操作（ROI区域的选取）
-        //    cv::imshow("imgTrainingnumbers1", imgTrainingnumbers1); 
-            //testCells.push_back(matROIResized2);
-
-    //  trainCells.push_back(matROIResized88);  
-
-
-
-    //     std::cout << "\n\n"<< "numbers" << i << "\n\n";
-
-    //   std::cout << "\n\n"<< "matROIResized88" << matROIResized88<< "\n\n";
-
+    
   }
-
-  // cout << "trainLabels: " << trainLabels << endl;
 
     for(int z=0;z<validContoursWithData2.size();z++){
         if(z % 50 == 0 && z != 0){
-        //    std::cout << "\n\n"<< "sample" << trainCells[z]<< "\n\n";
             }
       }
 
-
-
-
-
-      //std::cout << "\n\n"<< "matROIResized11" << matROIResized11.size()<< "\n\n";
-
-
-    //  cv::Size s = testCells.size();
-    // int  rowss = s.height;
-    // int  colss = s.width;
-    //  std::cout << "\n\n"<< "rowss = " <<  rowss<< "\n\n";
-    //  std::cout << "\n\n"<< "colss = " <<  colss<< "\n\n";
-
-
-//   for (int i = 0; i < 5224; i++) { 
-//             std::cout << "\n\n"<< "trainlabels[i]" <<trainLabels[i]<< "\n\n";  }
 
 
     cout << "Image Count : " << ImgCount << endl;
@@ -526,15 +426,7 @@ for (int i = 0; i < validContoursWithData2.size(); i++) {            // for each
      }
      digitClassNumber = 0;
 
-//  //  cout << "ini: " << ini[3] << endl;
 
-//     for(int z=0;z<int(0.1*ImgCount);z++){
-//         if(z % 50 == 0 && z != 0){
-//             digitClassNumber = digitClassNumber + 1;
-//             }
-//        testLabels.push_back(digitClassNumber);
-//     }
-  //std::cout << "\n\n" << " classnumber = " << digitClassNumber<< "\n\n"; 
       digitClassNumber1 = 10;
 
 for (int i = 0; i < validContoursWithData1.size(); i++) { 
@@ -548,22 +440,7 @@ for (int i = 0; i < validContoursWithData1.size(); i++) {
           digitClassNumber1 = 10;
 
 
-     //std::cout << "\n\n" << " classnumber = " << digitClassNumber1<< "\n\n"; 
-
-
-
-    //   if (i<=55)
-    //   { trainLabels.push_back('L');}
-    //   else if (56<=i && i<112 )
-    //   { trainLabels.push_back('R');}
-    //   else if (112<=i && i<168 )
-    //   { trainLabels.push_back('F');}
-    //   else 
-    //    { trainLabels.push_back('B');}
-            
-            // std::cout << "\n\n" << " NO. = " << i << "\n\n"; 
-            // cout << "trainLabels: " << trainLabels[i] << endl;
-
+ 
     
 
    for(int z=0;z< validContoursWithData2.size();z++){
@@ -571,30 +448,9 @@ for (int i = 0; i < validContoursWithData1.size(); i++) {
             digitClassNumber = digitClassNumber + 1;
             }
        trainLabels.push_back(digitClassNumber);
-
-        //  std::cout << "\n\n" << " NO. = " << z << "\n\n"; 
-        // // std::cout << "\n\n" << " classnumber = " << digitClassNumber<< "\n\n"; 
-        // cout << "trainLabels: " << trainLabels[z] << endl;
     }
     digitClassNumber = 0;
-
-
-   //  cout << "trainLabels: " << trainLabels << endl;
-
-    // for(int z=0;z<int(0.1*ImgCount);z++){
-    //     if(z % 50 == 0 && z != 0){
-    //         digitClassNumber = digitClassNumber + 1;
-    //         }
-     //   testLabels.push_back(digitClassNumber);
-    //}
-  //std::cout << "\n\n" << " classnumber = " << digitClassNumber<< "\n\n"; 
-
     cv::imshow("results ", matTestingNumbers); 
-
-    // int intChar = cv::waitKey(0);  
-  //return (0)
-
-
 }
 
 
@@ -606,7 +462,6 @@ void CreateDeskewedTrainTest(vector<Mat> &deskewedTrainCells,vector<Mat> &deskew
 
         Mat deskewedImg = deskew(trainCells[i]);
         deskewedTrainCells.push_back(deskewedImg);
-      // cout << "trainCells: " << i << endl;
 
     }
     
@@ -616,9 +471,6 @@ void CreateDeskewedTrainTest(vector<Mat> &deskewedTrainCells,vector<Mat> &deskew
         Mat deskewedImg1 = deskew(trainCells1[i]);
         deskewedTrainCells1.push_back(deskewedImg1);
 
-
-//     cout << "Traincells1: " << i << endl;
-//    std::cout << "\n\n" << " trainCells1contents" << deskewedImg1<< "\n\n";
    }
 
       
@@ -632,9 +484,7 @@ void CreateDeskewedTrainTest(vector<Mat> &deskewedTrainCells,vector<Mat> &deskew
         deskewedTestCells.push_back(deskewedImg1);}  
 
        cout << "testCells: " << i << endl;
-       // std::cout << "\n\n" << " deskewedImgtest" << deskewedImg<< "\n\n";
     }         
-//cout << "Traincells1: " << TrainCells1.size() << endl;
 }
 
 HOGDescriptor hog(
@@ -659,11 +509,7 @@ void CreateTrainTestHOG(vector<vector<float> > &trainHOG, vector<vector<float> >
         trainHOG.push_back(descriptors);
     }
 
-    //   for(int y=0;y<deskewedtrainCells1.size();y++){
-    //     vector<float> descriptors;
-    //     hog.compute(deskewedtrainCells1[y],descriptors);
-    //     trainHOG1.push_back(descriptors);
-    // }
+
    
     for(int y=0;y<deskewedTestCells.size();y++){
         
@@ -681,11 +527,7 @@ void CreateTrainTestHOG1(vector<vector<float> > &trainHOG1, vector<vector<float>
         trainHOG1.push_back(descriptors);
     }
 
-    //   for(int y=0;y<deskewedtrainCells1.size();y++){
-    //     vector<float> descriptors;
-    //     hog.compute(deskewedtrainCells1[y],descriptors);
-    //     trainHOG1.push_back(descriptors);
-    // }
+ 
    
     for(int y=0;y<deskewedTestCells1.size();y++){
         
@@ -712,11 +554,6 @@ void ConvertVectortoMatrix(vector<vector<float> > &trainHOG,  vector<vector<floa
            trainMat.at<float>(i,j) = trainHOG[i][j]; 
         }
     }
-//  for(int i = 0;i<trainHOG1.size();i++){
-//         for(int j = 0;j<descriptor_size;j++){
-//            trainMat.at<float>(trainHOG.size()+i,descriptor_size+j) = trainHOG1[i][j]; 
-//         }
-//     }
 
     for(int i = 0;i<testHOG.size();i++){
         for(int j = 0;j<descriptor_size;j++){
@@ -739,11 +576,7 @@ void ConvertVectortoMatrix1(vector<vector<float> > &trainHOG1,  vector<vector<fl
            trainMat1.at<float>(i,j) = trainHOG1[i][j]; 
         }
     }
-//  for(int i = 0;i<trainHOG1.size();i++){
-//         for(int j = 0;j<descriptor_size;j++){
-//            trainMat.at<float>(trainHOG.size()+i,descriptor_size+j) = trainHOG1[i][j]; 
-//         }
-//     }
+
 
     for(int i = 0;i<testHOG1.size();i++){
         for(int j = 0;j<descriptor_size1;j++){
@@ -801,12 +634,7 @@ void svmTrain1(Ptr<SVM> svm, Mat &trainMat1, vector<int> &trainLabels1)
 
 
 
-// void svmTrain1(Ptr<SVM> svm, Mat &trainMat1, vector<int> &trainLabels1)
-// {
-//   Ptr<TrainData> td1 = TrainData::create(trainMat1, COL_SAMPLE, trainLabels1);
-//   svm->train(td1);
-//   svm->save("results/eyeGlassClassifierModel1.yml");
-// }
+
 void svmPredict1(Ptr<SVM> svm, Mat &testResponse1, Mat &testMat1 )
 {
  static const char ini[4] =  { 'L', 'R', 'F', 'B', };
@@ -835,25 +663,11 @@ for(int i = 0; i < testResponse1.rows; i++)
 void svmPredict(Ptr<SVM> svm, Mat &testResponse, Mat &testMat )
 {
   svm->predict(testMat, testResponse);
-//cout  << "numbers read = " << testResponse << endl;  
 
-//   cv::Size size = testResponse.size();
-//   int total = size.width * size.height * testResponse.channels();
-//   std::cout << "Mat size = " << total << std::endl;
-//  std::vector<uchar> data(testResponse.ptr(), testResponse.ptr() + total);
-
-//  for(int i = 0; i < testResponse.rows; i++)
-//  {   matAsString [i] =testResponse.at<float>(i,0);
-//  cout  << "sb= " << matAsString[i]   << endl;  
-//  }
-//  (testResponse.begin<unsigned char>(), testResponse.end<unsigned char>());
-//cout  << "numbers read = " << testResponse.at<float>(2,0) << endl;  
 
 for(int i = 0; i < testResponse.rows; i++)
 { float   matAsString =  testResponse.at<float>(i);
-  //string matAsString (testResponse.begin<unsigned char>(), testResponse.end<unsigned char>());
-// string s;
-// s = matAsString;
+
 cout << "numbers read1 = "<< endl << " "  <<  matAsString << endl << endl;
 
 }
@@ -862,45 +676,9 @@ cout << "numbers read1 = "<< endl << " "  <<  matAsString << endl << endl;
 
 
 
-// void SVMevaluate(Mat &testResponse,Mat &testResponse1, float &count, float &accuracy, vector<int> &testLabels, vector<int> &testLabels1)
-// {
-//   for(int i = 0; i < testResponse.rows; i++)
-//   {
-//     // cout << testResponse.at<float>(i,0) << " " << testLabels[i] << endl;
-//     if(testResponse.at<float>(i,0) == testLabels[i])
-//       count = count + 1;   
-
-// float flttestResponse = (float)testResponse.at<float>(0, 0);
-// strFinalString = strFinalString + char(int(flttestResponse)); // append current char to full string
-// //std::cout << "\n\n" << "numbers read = " << strFinalString << "\n\n";       // show the full string
-
-//   }
-// for(int i = 0; i < testResponse1.rows; i++)
-//   {
-//     // cout << testResponse.at<float>(i,0) << " " << testLabels[i] << endl;
-//     if(testResponse1.at<float>(i,0) == testLabels1[i])
-//       count = count + 1;   
-
-// float flttestResponse1 = (float)testResponse1.at<float>(0, 0);
-// strFinalString = strFinalString + char(int(flttestResponse1)); // append current char to full string
-// //std::cout << "\n\n" << "numbers read = " << strFinalString << "\n\n";       // show the full string
-
-//   }
-
-  //accuracy = (count/testResponse.rows)*100;
-  
-
-
-// }
-
-
 int main()
 {
-   //cv::Mat img; 
  
-    // std::vector<ContourWithData> allContoursWithData;           // declare empty vectors,
-    // std::vector<ContourWithData> validContoursWithData;         // we will fill these shortly
-
  
 
 
@@ -926,7 +704,6 @@ int main()
     vector<Mat> deskewedTestCells1;
 
 
-   // std::cout << "\n\n"<< "trainCells = " << &trainCells << "\n\n";  
 
 
 
@@ -945,13 +722,6 @@ int main()
     int descriptor_size1 = trainHOG1[0].size();
 
      
-    //  std::cout << "\n\n"<< "TrainCells1 = " << TrainCells1.size() << "\n\n";
-     
-    //  int nDims = TrainCells1.dim;
-    //  int lastDim = TrainCells1.size[nDims-1];
-    //  std::cout << "\n\n"<< "size = " <<lastDim << "\n\n";
-
-    //int descriptor_size1 = trainHOG1[0].size();
  float   matAsString1 = 11;
   string oss= std::to_string(matAsString1);
 
@@ -961,37 +731,15 @@ int main()
 
   cout << "sb: "<< oss <<"\n";
 
-    //cout << "Descriptor Size1 : " << descriptor_size1 << endl;
 
 
     Mat trainMat(trainHOG.size(),descriptor_size,CV_32FC1);
     Mat trainMat1(trainHOG1.size(),descriptor_size1,CV_32FC1);
 
-  //  Mat trainMat1(trainHOG1.size(),descriptor_size,CV_32FC1);
 
     Mat testMat(testHOG.size(),descriptor_size,CV_32FC1);
     Mat testMat1(testHOG1.size(),descriptor_size1,CV_32FC1);
-  //  hconcat(trainMat,testMat,trainmatplustestmat);  
-  //cout << "trainmatplustestmat:" << trainmatplustestmat << endl;
 
-
-//    int n = 0;  
-//     vector<Mat>::iterator it =  trainCells.begin();  
-//     while (it !=   trainCells.end())  
-//     {  
-//         Mat tmp = *it;  
-//         stringstream ss;  
-//         ss << n;  
-//         n++;  
-//         imwrite(ss.str() + ".jpg", tmp);  
-
-//         std::cout << "\n\n"<< "tmp" << tmp<< "\n\n";
-
-//         it++;  
-  
-//         waitKey(0);  
-
-//     }  
 
 
     ConvertVectortoMatrix(trainHOG,testHOG,trainMat,testMat);
@@ -1010,7 +758,6 @@ int main()
     svmTrain(model, trainMat,trainLabels);
     svmTrain(model1, trainMat1,trainLabels1);
 
-    // svmTrain1(model, trainMat1,trainLabels1);
 
 
     ///////////  SVM Testing  ////////////////
@@ -1023,12 +770,6 @@ int main()
     getSVMParams(model);
     getSVMParams(model1);
 
-    //SVMevaluate(testResponse,testResponse1, count, accuracy, testLabels,testLabels1);
-   //std::cout << "\n\n" << " trainCells:= " << trainCells < "\n\n";  
-  
-   // cout << "the accuracy is :" << accuracy << endl;
-    
-//     cv::imshow("digitnumbers ", matTestingNumbers); 
 
       int intChar = cv::waitKey(0);  
      return (0);
