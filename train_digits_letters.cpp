@@ -619,7 +619,7 @@ void svmTrain(Ptr<SVM> svm, Mat &trainMat, vector<int> &trainLabels)
   
   svm->train(td);
 
-  svm->save("results/eyeGlassClassifierModel.yml");
+  svm->save("3.xml");
 }
 void svmTrain1(Ptr<SVM> svm, Mat &trainMat1, vector<int> &trainLabels1)
 {
@@ -628,7 +628,7 @@ void svmTrain1(Ptr<SVM> svm, Mat &trainMat1, vector<int> &trainLabels1)
   
   svm->train(td1);
 
-  svm->save("results/eyeGlassClassifierModel1.yml");
+  svm->save("4.xml");
 }
 
 
