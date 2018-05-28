@@ -1,0 +1,236 @@
+tar zxvf cmake-3.11.1.tar.gz
+
+
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF
+C25E5DDA   DD24C027
+sudo aptitude install libturbojpeg-dev
+The following packages have unmet dependencies:
+ jevois-host : Depends: libturbojpeg-dev which is a virtual package and is not provided by any available package.
+
+               Depends: python3.6-dev which is a virtual package and is not provided by any available package.
+
+ jevois-platform : Depends: libturbojpeg-dev which is a virtual package and is not provided by any available package.
+
+                   Depends: python3.6-dev which is a virtual package and is not provided by any available package.
+
+ jevois-opencv : Depends: python3.6-dev which is a virtual package and is not provided by any available package.
+
+
+$tar -zxvf xx.tar.gz 
+
+
+The following actions will resolve these dependencies:
+
+     Keep the following packages at their current version:
+1)     jevois-host [Not Installed]                        
+2)     jevois-opencv [Not Installed]                      
+3)     jevois-platform [Not Installed]                    
+4)     jevois-sdk [Not Installed]                         
+5)     jevois-sdk-dev [Not Installed]                     
+6)     jevoisbase-host [Not Installed]                    
+7)     jevoisbase-platform [Not Installed]                
+
+
+
+~/jevois/scripts/jevois-create-module Tutorial HelloJeVois1
+g++ -o GenData.cpp `pkg-config opencv --cflags --libs`
+g++ -std=c++11 GenData.cpp -o output `pkg-config --cflags --libs opencv`
+g++ -std=c++11 TrainAndTest.cpp -o output `pkg-config --cflags --libs opencv`
+
+
+cd /home/xiaotian/OpenCV_3_KNN_Character_Recognition_Cpp/TrainAndTest
+g++ -std=c++11 size.cpp -o output2 `pkg-config --cflags --libs opencv`
+./output2
+
+cd /home/xiaotian/OpenCV_3_KNN_Character_Recognition_Cpp/GenData
+
+cd /home/xiaotian/OpenCV_3_KNN_Character_Recognition_Cpp/GenData
+cd /home/xiaotian/OpenCV_3_KNN_Character_Recognition_Cpp/TrainAndTest
+
+
+/home/xiaotian/Pictures/test1.png
+/home/xiaotian/Pictures/test2.png
+/home/xiaotian/Pictures/test3.png
+/home/xiaotian/Pictures/test4.png
+/home/xiaotian/Pictures/test5.png
+
+cd /home/xiaotian/learnopencv/digits-classification
+g++ -std=c++11 train_digits.cpp -o output `pkg-config --cflags --libs opencv`
+
+
+g++ -std=c++11 train_digits_letters.cpp -o output1 `pkg-config --cflags --libs opencv`
+g++ -std=c++11 jevois.cpp -o output2 `pkg-config --cflags --libs opencv`
+g++ -std=c++11 test.cpp -o output3 `pkg-config --cflags --libs opencv`
+g++ -std=c++11 Trainsave.cpp -o output4 `pkg-config --cflags --libs opencv`
+
+pkg-config --modversion opencv 
+
+valgrind ./output
+
+./output
+
+
+./output1
+./output2
+
+./output4
+cd /home/xiaotian/English/Hnd/Img/Sample054
+g++ -std=c++11 readimg.cpp -o output `pkg-config --cflags --libs opencv`
+./output
+
+
+
+ls | cat -n | while read n f; do mv "$f" "$n.png"; done
+digitnumbers.png
+
+cd /home/xiaotian/English/Hnd/Img/4 capital letters
+/home/xiaotian/English/Hnd/Img/4 capital letters
+
+cd /home/xiaotian/English/Hnd/Img/capitalletters
+g++ -std=c++11 vert.cpp -o output `pkg-config --cflags --libs opencv`
+
+cd /home/xiaotian/English/Hnd/Img/smallletters
+g++ -std=c++11 vert.cpp -o output `pkg-config --cflags --libs opencv`
+g++ -std=c++11 main.cpp -o output `pkg-config --cflags --libs opencv`
+
+main.cpp
+g++ -std=c++11 test.C -o output `pkg-config --cflags --libs opencv`
+./output
+./output1
+
+wget https://cmake.org/files/v3.11/cmake-3.11.1-Linux-x86_64.tar.gz
+
+tar zxvf cmake-3.11.1-Linux-x86_64.tar.gz
+tree -L 2 cmake-3.11.1-Linux-x86_64
+
+
+sudo rm -rf /opt/opencv_contrib
+
+/etc/polipo/File
+mv cmake-3.11.1-Linux-x86_64 /opt/cmake-3.11.1
+ln -sf /opt/cmake-3.11.1/bin/*  /usr/bin/ 
+
+cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/H_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD
+
+[8;
+ 8;
+ 13;
+ 2;
+ 8;
+ 8;
+ 13;
+ 10;
+ 8;
+ 12;
+ 8;
+ 11;
+ 12;
+ 8;
+ 2;
+ 8;
+ 13;
+ 2;
+ 8;
+ 13;
+ 2;
+ 8;
+ 8;
+ 13;
+ 10;
+ 11;
+ 12;
+ 8;
+ 10;
+ 2;
+ 12;
+ 13;
+ 2;
+ 4;
+ 13;
+ 10;
+ 11;
+ 12;
+ 13;
+ 2;
+ 8;
+ 13;
+ 2;
+ 8;
+ 4]
+
+
+sudo make install
+git clone https://github.com/opencv/opencv_extra.git
+<cmake_build_dir>/bin/opencv_test_core
+
+
+    set OPENCV_TEST_DATA_PATH environment variable to <path to opencv_extra/testdata>.
+    execute tests from build directory.
+
+jevois-daemon --videomapping=33
+sudo jevois-add-videomapping YUYV 640 480 28.5 YUYV 640 480 27.5 Tutorial HelloJeVois
+sudo jevois-delete-videomapping YUYV 640 480 28.5 YUYV 640 480 27.5 Tutorial HelloJeVois
+
+
+
+sudo jevois-add-videomapping YUYV 640 480 28.5 YUYV 640 480 26.5 Tutorial HelloJeVois1
+cd /jevois/config
+
+
+
+cd /usr/include/jevois/Component/details
+
+gksudo gedit videomappings.cfg
+ValidValuesSpecImpl.H
+
+
+videomappings.cfg
+
+
+
+sudo <vim> <videomappings.cfg>.
+cd ~/hellojevois2/pbuild
+sudo make && sudo make install
+
+
+
+cd hbuild
+cd hbuild
+make && sudo make install
+
+
+make
+sudo make install
+
+
+
+cd ~/hellojevois
+./rebuild-host.sh
+
+./rebuild-platform.sh
+
+cd ~/hellojevois/pbuild
+sudo make && sudo make install
+make jvpkg
+
+cd 
+jevois-usbsd start
+
+
+include_directories /Contrib
+include_directories Contrib/tiny-dnn
+
+
+/media/xiaotian/JEVOIS/modules/Tutorial/HelloJeVois
+/home/xiaotian/learnopencv/FacialAttractiveness
+/home/xiaotian/opencv/build/opencv_extra/testdata/cv/ximgproc
+/home/xiaotian/opencv/build/opencv_extra/testdata/cv/xphoto/dct_image_denoising
+/home/xiaotian/opencv/build/opencv_extra/testdata/cv/xphoto/simple_white_balance
+
+    Ptr<ml::SVM>svm = ml::SVM::load<ml::SVM>("svm.xml");
+    Ptr<SVM> svm = Algorithm::load<SVM>("trained-svm.xml");
+
+/home/xiaotian/jevois/include/jevois/Core
+ cv::Mat A = {82, 251, 251, 0, 0, 0, 251, 31, 0, 0, 0, 0, 0, 194, 251, 251, 254, 255, 0, 0, 4, 13, 103, 79, 255, 13, 67, 255, 255, 255, 255, 255, 255, 255, 13, 13, 13, 0, 0, 0, 0, 0, 0, 70, 255, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 255, 108, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 238, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 198, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 197, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 239, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 146, 255, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 255, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 146, 255, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 157, 51, 0, 0, 0, 0, 0, 0, 255, 32, 0, 0, 0, 0, 0, 115, 149, 149, 149, 189, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 115, 115, 115, 115, 112, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 146, 255, 255, 121, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 225, 255, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 57, 255, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
