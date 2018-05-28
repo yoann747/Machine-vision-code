@@ -195,8 +195,8 @@ for(int i = 0;i < img.rows ; i = i + 5*SZ)
     cv::cvtColor(imgTrainingletters, imgGrayscale, cv::COLOR_BGR2GRAY);         // convert to grayscale
     cv::cvtColor(imgTrainingnumbers1, imgGrayscale1, cv::COLOR_BGR2GRAY);         // convert to grayscale
 
-    bitwise_not ( imgTrainingnumbers, imgTrainingnumbers1 );
-                                                                        // blur
+
+        // blur
     cv::GaussianBlur(matGrayscale,              // input image
         matBlurred,                // output image
         cv::Size(5, 5),            // smoothing window width and height in pixels
